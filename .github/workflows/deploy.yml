@@ -15,13 +15,13 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: AKIAUCI24SY5C37TBOWW
-          aws-secret-access-key: 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
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
       - name: Deploy to AWS CloudFormation
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: tekloon-test-stack
-          template: workshop4.yaml
+          name: tekloon-test-stack #Name of CloudFormation Stack
+          template: Workshop 4{CFTemplate}.yaml
           no-fail-on-empty-changeset: "1"
